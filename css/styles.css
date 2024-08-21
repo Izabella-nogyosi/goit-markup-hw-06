@@ -90,6 +90,7 @@ body {
   display: flex;
   gap: 40px;
   padding: 24px 0;
+  margin-bottom: 48px;
   color: #2e2f42;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -115,6 +116,21 @@ body {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+@media screen and (min-width: 768px) {
+  .header-nav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
 .header-container {
   max-width: 1158px;
   margin: 0 auto;
@@ -124,10 +140,44 @@ body {
   column-gap: 40px;
 }
 
-.container {
-  max-width: 1158px;
-  padding: 0 15px;
-  margin: 0 auto;
+@media screen and(min-width:768px) {
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+
+
+
+.mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+@media (min-width: 1158px) {
+  .desktop-nav .header-nav {
+    display: flex;
+    align-items: center;
+  }
+  .mobile-nav {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .header-list-item,
@@ -194,6 +244,8 @@ body {
   padding: 120px 0;
 }
 
+
+
 .section-title {
   font-size: 56px;
   line-height: 1.07;
@@ -202,6 +254,17 @@ body {
   color: #ffffff;
   max-width: 496px;
 }
+
+@media screen and (min-width: 768px) {
+  .section-title {
+    text-align: center;
+    font-size: 56px;
+    line-height: 1.07;
+    margin-bottom: 36px;
+    max-width: 496px;
+  }
+}
+
 .first-section {
   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
@@ -209,10 +272,36 @@ body {
     ),
     url(../images/first-section-bg-image.jpg);
   max-width: 1440px;
+  margin: auto;
   padding: 188px 0;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+@media screen and (min-width: 768px) {
+  @media (min-resolution: 192dpi) {
+    .first-section {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/first-section-bg-image.jpg);
+    }
+  }
+}
+
+@media (min-resolution: 192dpi) {
+  .order-section {
+      background-image: linear-gradient(to bottom, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/order-secrion/dark-bg@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .first-section {
+    max-width: 768px;
+    padding: 112px 0;
+  }
 }
 
 .first-section-container {
@@ -237,6 +326,19 @@ body {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 16px 32px;
   margin: 0 auto;
+}
+
+
+.container {
+  max-width: 1158px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
 }
 
 .visually-hidden {
@@ -264,6 +366,15 @@ body {
 .feauture-section-list {
   display: flex;
   gap: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .feauture-section-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 72px 24px;
+  }
 }
 
 .features-list {
@@ -297,6 +408,7 @@ body {
 .team-list {
   display: flex;
   gap: 24px;
+  flex-wrap: wrap;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
@@ -500,6 +612,7 @@ body {
   display: block;
   align-items: baseline;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .footer-logo {
@@ -613,6 +726,8 @@ body {
 }
 
 .modal {
+  visibility: none;
+  opacity: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -621,6 +736,11 @@ body {
   background-color: rgba(46, 47, 66, 0.4);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal .is-open {
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal-container {
@@ -715,7 +835,7 @@ body {
 }
 
 .modal-form-input:focus {
- border-color: #4D5AE5;
+  border-color: #4d5ae5;
   fill: #4d5ae5;
 }
 
@@ -778,7 +898,7 @@ body {
 .checkbox-input:checked + .checkbox-container-label .checkbox-span {
   background-color: #404bbf;
   border: none;
-  fill: #f4f4fd;  
+  fill: #f4f4fd;
 }
 
 .privacy-policy-link {
@@ -801,3 +921,5 @@ body {
   border: none;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+@media;
